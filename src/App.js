@@ -1,25 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import Count from './component/Count';
+
+
+// const product = {
+//   padding:'12px',
+//   backgroundColor:'blue',
+// }
 
 function App() {
+  const products = [
+    {name:'Laptop',price:'180000'},
+    {name:'Phone',price:'80000'},
+    {name:'Watch',price:'800'}
+  ]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Product name="Laptop" price='180000'></Product>
+      <Product name="Phone" price='80000'></Product>
+      <Product name="Watch" price='180000'></Product> */}
+      {
+        products.map(product => <Product name={product.name} price={product.price}></Product>)
+      }
+      <Count></Count>
     </div>
   );
+}
+function Product(props){
+  return(
+    <div className='product'>
+      <h4>Name : {props.name}</h4>
+      <p>Price : {props.price}</p>
+
+    </div>
+  )
 }
 
 export default App;
